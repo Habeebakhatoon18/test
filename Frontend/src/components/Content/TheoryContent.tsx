@@ -54,7 +54,8 @@ export function TheoryContent() {
     };
 
     const fetchSummary = async () => {
-      const API_BASE_URL = process.env.VITE_BASE_URL;
+      const API_BASE_URL = import.meta.env.VITE_BASE_URL;
+
       try {
         setSummaryLoading(true);
         setSummaryError(null);

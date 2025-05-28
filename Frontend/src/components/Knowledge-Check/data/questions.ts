@@ -66,7 +66,8 @@ export const getQuestions = async (): Promise<QuizQuestions> => {
   if (!videoId) {
     throw new Error('No video ID found. Please select a video.');
   }
-const API_BASE_URL = process.env.VITE_BASE_URL ;
+const API_BASE_URL = import.meta.env.VITE_BASE_URL;
+
   const endpoints = [
     { url: `${API_BASE_URL}/KnowledgeCheckEasy`, difficulty: 'easy' },
     { url: `${API_BASE_URL}/KnowledgeCheckMedium`, difficulty: 'medium' },

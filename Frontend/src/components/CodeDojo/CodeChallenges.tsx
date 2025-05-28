@@ -252,7 +252,8 @@ export const CodeChallenges = ({ onSelectChallenge }: CodeChallengesProps) => {
     setRetryInProgress(true);
 
     // Fetch from all three endpoints
-    const API_BASE_URL = process.env.VITE_BASE_URL;
+   const API_BASE_URL = import.meta.env.VITE_BASE_URL;
+
     const endpoints = [
       { url: `${API_BASE_URL}/CodeDojoEasy`, difficulty: 'Easy' },
       { url: `${API_BASE_URL}/CodeDojoMedium`, difficulty: 'Medium' },
