@@ -34,14 +34,15 @@ export async function fetchTheoryData(videoId: string): Promise<TheoryContent> {
   try {
     // Fetch sub points (timestamps and bullet points)
     const subPointsResponse = await axios.post<SubPointsResponse>(
-      'http://localhost:3000/SummarySubPoints',
-      { videoId }
+      
+          `${import.meta.env.VITE_BASE_URL}/SummarySubPoints`,
+          { videoId }   
     );
 
     // Fetch main title card
     const mainResponse = await axios.post<MainResponse>(
-      'http://localhost:3000/SummaryMain',
-      { videoId }
+      `${import.meta.env.VITE_BASE_URL}/SummaryMain`,
+          { videoId }
     );
     console.log('main',mainResponse,mainResponse.data)
 

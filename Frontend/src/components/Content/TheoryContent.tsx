@@ -57,7 +57,10 @@ export function TheoryContent() {
       try {
         setSummaryLoading(true);
         setSummaryError(null);
-        const response = await axios.post<SummaryResponse>('http://localhost:3000/Summary', { videoId });
+        const response =  await axios.post<SummaryResponse>(
+          `${import.meta.env.VITE_BASE_URL}/Summary`,
+          { videoId }
+        );
         setSummary(response.data.summary);
       } catch (err) {
         console.error('Error fetching summary:', err);
