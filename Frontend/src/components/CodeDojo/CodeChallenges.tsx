@@ -252,10 +252,11 @@ export const CodeChallenges = ({ onSelectChallenge }: CodeChallengesProps) => {
     setRetryInProgress(true);
 
     // Fetch from all three endpoints
+    const API_BASE_URL = process.env.VITE_BASE_URL || "http://localhost:3000";
     const endpoints = [
-      { url: 'http://localhost:3000/CodeDojoEasy', difficulty: 'Easy' },
-      { url: 'http://localhost:3000/CodeDojoMedium', difficulty: 'Medium' },
-      { url: 'http://localhost:3000/CodeDojoHard', difficulty: 'Hard' },
+      { url: `${API_BASE_URL}/CodeDojoEasy`, difficulty: 'Easy' },
+      { url: `${API_BASE_URL}/CodeDojoMedium`, difficulty: 'Medium' },
+      { url: `${API_BASE_URL}/CodeDojoHard`, difficulty: 'Hard' },
     ];
 
     try {

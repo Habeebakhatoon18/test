@@ -66,11 +66,11 @@ export const getQuestions = async (): Promise<QuizQuestions> => {
   if (!videoId) {
     throw new Error('No video ID found. Please select a video.');
   }
-
+const API_BASE_URL = process.env.VITE_BASE_URL || "http://localhost:3000";
   const endpoints = [
-    { url: 'http://localhost:3000/KnowledgeCheckEasy', difficulty: 'easy' },
-    { url: 'http://localhost:3000/KnowledgeCheckMedium', difficulty: 'medium' },
-    { url: 'http://localhost:3000/KnowledgeCheckHard', difficulty: 'hard' },
+    { url: `${API_BASE_URL}/KnowledgeCheckEasy`, difficulty: 'easy' },
+    { url: `${API_BASE_URL}/KnowledgeCheckMedium`, difficulty: 'medium' },
+    { url: `${API_BASE_URL}/KnowledgeCheckHard`, difficulty: 'hard' },
   ];
 
   const result: QuizQuestions = { easy: [], medium: [], hard: [] };

@@ -33,15 +33,16 @@ interface MainResponse {
 export async function fetchTheoryData(videoId: string): Promise<TheoryContent> {
   try {
     // Fetch sub points (timestamps and bullet points)
+    const API_BASE_URL = process.env.VITE_BASE_URL || "http://localhost:3000";
     const subPointsResponse = await axios.post<SubPointsResponse>(
       
-          `${import.meta.env.VITE_BASE_URL}/SummarySubPoints`,
+          `${API_BASE_URL}/SummarySubPoints`,
           { videoId }   
     );
 
     // Fetch main title card
     const mainResponse = await axios.post<MainResponse>(
-      `${import.meta.env.VITE_BASE_URL}/SummaryMain`,
+      `${API_BASE_URL}/SummaryMain`,
           { videoId }
     );
     console.log('main',mainResponse,mainResponse.data)

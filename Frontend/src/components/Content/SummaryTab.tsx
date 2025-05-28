@@ -18,12 +18,13 @@ export function SummaryTab({ videoId }: SummaryTabProps) {
   const [summary, setSummary] = useState<string | null>(null);
   
   useEffect(() => {
+    const API_BASE_URL = process.env.VITE_BASE_URL || "http://localhost:3000";
     const fetchSummary = async () => {
       try {
         setLoading(true);
         setError(null);
         const response = await axios.post<SummaryResponse>(
-          `${import.meta.env.VITE_BASE_URL}/summary`,
+          `${API_BASE_URL}/summary`,
           { videoId }
         );
         if (response.data.success) {

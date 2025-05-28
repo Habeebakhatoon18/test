@@ -54,11 +54,12 @@ export function TheoryContent() {
     };
 
     const fetchSummary = async () => {
+      const API_BASE_URL = process.env.VITE_BASE_URL || "http://localhost:3000";
       try {
         setSummaryLoading(true);
         setSummaryError(null);
         const response =  await axios.post<SummaryResponse>(
-          `${import.meta.env.VITE_BASE_URL}/Summary`,
+          `${API_BASE_URL}/Summary`,
           { videoId }
         );
         setSummary(response.data.summary);
