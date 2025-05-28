@@ -18,7 +18,7 @@ export function SummaryTab({ videoId }: SummaryTabProps) {
   const [summary, setSummary] = useState<string | null>(null);
   
   useEffect(() => {
-    const API_BASE_URL = process.env.VITE_BASE_URL || "http://localhost:3000";
+    const API_BASE_URL = process.env.VITE_BASE_URL ;
     const fetchSummary = async () => {
       try {
         setLoading(true);

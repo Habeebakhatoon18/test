@@ -33,7 +33,7 @@ interface MainResponse {
 export async function fetchTheoryData(videoId: string): Promise<TheoryContent> {
   try {
     // Fetch sub points (timestamps and bullet points)
-    const API_BASE_URL = process.env.VITE_BASE_URL || "http://localhost:3000";
+    const API_BASE_URL = process.env.VITE_BASE_URL ;
     const subPointsResponse = await axios.post<SubPointsResponse>(
       
           `${API_BASE_URL}/SummarySubPoints`,

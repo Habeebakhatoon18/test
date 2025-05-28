@@ -99,7 +99,7 @@ export const CodeQuiz = ({ onXpGain }: CodeQuizProps) => {
       setLoading(true);
 
       const fetchWithRetry = async (retryDelay = 2000) => {
-        const API_BASE_URL = process.env.VITE_BASE_URL || "http://localhost:3000";
+        const API_BASE_URL = process.env.VITE_BASE_URL;
         try {
           const response = await axios.post<ApiResponse>(`${API_BASE_URL}/CodeDojoQuiz`, {
             videoId,
